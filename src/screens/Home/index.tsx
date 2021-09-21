@@ -35,13 +35,6 @@ export function Home() {
     const responseFormatted =  response ? JSON.parse(response) : [];
 
     if(responseFormatted){
-
-      // const teste = [{
-      //   id: '2',
-      //   service_name: 'teste',
-      //   email: 'teste@gmail.cm',
-      //   password: 'teste123',
-      // }]
       setData(responseFormatted);
       setSearchListData(responseFormatted);
     }
