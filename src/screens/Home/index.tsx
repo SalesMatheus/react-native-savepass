@@ -35,6 +35,13 @@ export function Home() {
     const responseFormatted =  response ? JSON.parse(response) : [];
 
     if(responseFormatted){
+
+      // const teste = [{
+      //   id: '2',
+      //   service_name: 'teste',
+      //   email: 'teste@gmail.cm',
+      //   password: 'teste123',
+      // }]
       setData(responseFormatted);
       setSearchListData(responseFormatted);
     }
@@ -42,10 +49,20 @@ export function Home() {
 
   function handleFilterLoginData() {
     // Filter results inside data, save with setSearchListData
+      const loginFilterFind = data.filter(item => item.service_name === searchText);
+      loginFilterFind && setSearchListData(loginFilterFind); 
+
   }
 
   function handleChangeInputText(text: string) {
     // Update searchText value
+    if(text === ''){
+      setSearchText(text);
+      setSearchListData(data);
+    }else{
+      setSearchText(text);
+
+    }
   }
 
   useFocusEffect(useCallback(() => {
